@@ -3,15 +3,10 @@ import shell from "shelljs";
 
 const routes = new Router();
 
-routes.get("/", (req, res) => {
-  return res.json({ message: "Hello Gustavo" });
-});
-
-routes.get("/execute", (req, res) => {
-  console.log("ENTRUUU");
-  const t = shell.exec("ls -l");
-  console.log(`AQUI È A PARADA ${t}`);
-  console.log(t.length);
+routes.post("/", (req, res) => {
+  const { command } = req.body;
+  console.log(command)
+  const t = shell.exec(command);
   return res.json({ message: t });
 });
 
