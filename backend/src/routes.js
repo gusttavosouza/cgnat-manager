@@ -7,7 +7,8 @@ routes.post("/", (req, res) => {
   const { command } = req.body;
   console.log(command)
   const t = shell.exec(command);
-  return res.json({ message: t });
+  console.log(t.stdout)
+  return res.json({ message: t.stdout });
 });
 
 export default routes;

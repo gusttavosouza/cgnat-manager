@@ -8,14 +8,14 @@ export default function Main() {
     const [command, setCommand] = useState('');
 
     async function handleSubmit() {
-        const response = await fetch('http://localhost:3030', {
+        const response = await fetch('http://localhost:3030/', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: {
+            body: JSON.stringify({
                 "command": command
-            }
+            })
         });
-        console.log(response)
+        const resposta = await response.json()
     }
 
     return (
