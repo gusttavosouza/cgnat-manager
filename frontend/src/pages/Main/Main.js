@@ -16,6 +16,7 @@ export default function Main() {
             })
         });
         const resposta = await response.json()
+        console.log(resposta)
     }
 
     return (
