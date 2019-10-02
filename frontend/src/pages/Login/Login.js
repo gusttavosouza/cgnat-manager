@@ -2,12 +2,11 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Login.css';
-
 import logo from '../../assets/logo-grande.jpg';
 
 export default function Login(){
 
-  function Copyright() {
+  function Footer() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {new Date().getDate() < 10 ? '0'+new Date().getDate() : new Date().getDate() }
@@ -37,7 +36,9 @@ export default function Login(){
         />
         <button type="submit">Entrar</button>
       </form>
-      <div><center><Copyright /></center></div>
+      <div>
+        <Footer className="footer"/>
+      </div>
     </div>   
   );
 }
