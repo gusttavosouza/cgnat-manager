@@ -1,81 +1,98 @@
- .appBar{
-    border-bottom: 1px solid #D3D3D3;
-  }
-
-.appBar .itemOne {
-  margin-left: 30px;
-}
-
-.appBar .avatar {
-  margin-left: 10px;
-  left: 5px;
-}
-
-.toolbar{
-  flex-wrap: wrap
-}
-
-.toolbarTitle{
-  flex-grow: 2
-}
-
-.logo{
-  margin-top: 8px
-}
-
-.avatar{
-  background-color: blue
-}
-
 .container-central{
   position: relative;
-  margin-top: 100px;
-  margin-bottom: 25px;
+  margin-top: 50px;
+  margin-bottom:50px;
   width: 100%;
   display: flex;
-  bottom: 50px;
-  align-content: center
+  align-content: center;
 }
 
-.container-central .containerOne {
+.container-central .containerLeft {
   margin-left: 40px;
-  height: 500px;
   width: 30%;
-  border: #D3D3D3 1px solid;
+  border-top:#D3D3D3 1px solid;
   border-radius: 3px;
 }
 
-.container-central .containerOne h1 {
+.container-central .containerLeft h1 {
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  border-bottom: #D3D3D3 1px solid;
+  border-bottom: #D3D3D3 1px solid; 
+  border-right: #D3D3D3 1px solid;
+  border-left: #D3D3D3 1px solid;
   padding: 15px;
   color: #666
 }
-.container-central .containerOne strong {
+.container-central .containerLeft strong {
   font-size: 18px;
   color: #666
 }
-.container-central .containerOne .mensagem {
+.container-central .containerLeft .mensagem {
   padding: 15px;
   font-size: 14px;
   text-align: justify;
   border-bottom: #D3D3D3 solid 1px;
+  border-right: #D3D3D3 1px solid;
+  border-left: #D3D3D3 1px solid;
   color:#999
 }
 
-.container-central .containerOne .mensagem .dataContainer {
+.container-central .containerLeft .mensagem .dataContainer {
   font-size: 12px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   padding-top: 5px
 }
-.container-central .containerTwo strong {
+
+.container-central .containerMiddle {
+  margin-left: 40px;
+  width: 30%;
+  border-top:#D3D3D3 1px solid;
+  border-radius: 3px;
+}
+
+.container-central .containerMiddle h1 {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-bottom: #D3D3D3 1px solid; 
+  border-right: #D3D3D3 1px solid;
+  border-left: #D3D3D3 1px solid;
+  padding: 15px;
+  color: #666
+}
+.container-central .containerMiddle strong {
   font-size: 18px;
   color: #666
 }
-.container-central .containerTwo .mensagem {
+.container-central .containerMiddle .mensagem {
+  padding: 15px;
+  font-size: 14px;
+  text-align: justify;
+  border-bottom: #D3D3D3 1px solid; 
+  border-right: #D3D3D3 1px solid;
+  border-left: #D3D3D3 1px solid;
+  color:#999
+}
+
+.container-central .containerMiddle .mensagem .information {
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-central .containerMiddle  .mensagem .information strong {
+  font-size: 18px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.container-central .containerRight strong {
+  font-size: 18px;
+  color: #666
+}
+.container-central .containerRight .mensagem {
   margin-top: 0px;
   padding: 15px;
   font-size: 18px;
@@ -86,15 +103,14 @@
   border-bottom: #D3D3D3 solid 1px;
 }
 
-
-.container-central .containerTwo {
+.container-central .containerRight {
   margin-left: 40px;
   padding-bottom: 10px;
   width: 400px;
   border-radius: 3px;
 }
 
-.container-central .containerTwo h1 {
+.container-central .containerRight h1 {
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;

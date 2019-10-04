@@ -1,0 +1,12 @@
+root{
+  display: flex
+}
+
+paper{
+  margin-right: 8px
+}
+
+buttonMenuAccount {
+  margin-right: 10px;
+  margin-left: 10px;
+}

@@ -1,54 +1,14 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Link from '@material-ui/core/Link';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
+import Menu from '../../components/Menu/Menu';
 
 import './Home.css';
-import logo from '../../assets/logo-pequeno.jpg';
   
 export default function Pricing() {
-
-  function Footer() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {new Date().getDate() < 10 ? '0'+new Date().getDate() : new Date().getDate() }
-        {'-'}
-        {new Date().getMonth()+1 < 10 ? '0'+new Date().getMonth()+1 : new Date().getMonth()+1 } 
-        {'-'}
-        {new Date().getFullYear()}
-        {' '}
-        {new Date().getHours() < 10 ? '0'+new Date().getHours() : new Date().getHours() } 
-        {':'}
-        {new Date().getMinutes() < 10 ? '0'+new Date().getMinutes() : new Date().getMinutes() } 
-        {':'}
-        {new Date().getSeconds() < 10 ? '0'+new Date().getSeconds() : new Date().getSeconds() } 
-      </Typography>
-    );
-  }
-
   return (
       <div className="container">
-        <AppBar position="static" color="default" elevation={0} className={"appBar"}>
-          <Toolbar className={"toolbar"}>
-            <Typography variant="h6" color="inherit" noWrap className={"toolbarTitle"}>
-              <img src={logo} alt="CGNAT Manager" className={"logo"} /> 
-            </Typography>
-              <Link variant="button" color="textPrimary" href="#" className={"itemOne"}>
-                Prefixos
-              </Link>
-              <Link variant="button" color="textPrimary" href="#" className={"itemOne"}>
-                Configurações
-              </Link>
-              <Link variant="button" color="textPrimary" href="#" className={"itemOne"}>
-                Logs
-              </Link>
-              <Avatar className={"avatar"}>GR</Avatar>
-          </Toolbar>
-        </AppBar>
-       <div className="container-central">  
-          <div className="containerOne">
+        <Menu />
+        <div className="container-central">  
+          <div className="containerLeft">
             <h1>Atividades Recentes</h1>
             <p className="mensagem"><strong>Adicionado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
               <p className="dataContainer">Thiago - 02-10-2019 13:30</p>
@@ -56,19 +16,44 @@ export default function Pricing() {
             <p className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
               <p className="dataContainer">João - 02-10-2019 13:30</p>
             </p>
-            
-          </div>    
-          <div className="containerOne">
-            <h1>Prefixos</h1>
-            <p className="mensagem"><strong>Adicionado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
-              <p className="dataContainer">Thiago - 02-10-2019 13:30</p>
+            <p className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
+              <p className="dataContainer">João - 02-10-2019 13:30</p>
             </p>
             <p className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
               <p className="dataContainer">João - 02-10-2019 13:30</p>
             </p>
+            
+          </div>    
+          <div className="containerMiddle">
+            <h1>Informações CGNAT</h1>
+            <p className="mensagem"><strong>Placa de Rede: <strong>enp0s1 </strong></strong><br/>
+              <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
+              <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
+              <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
+              <p className="information"><strong>Trafego Entrando:</strong>800 pacotes</p> 
+              <p className="information"><strong>Trafego Saindo:</strong>800 pacotes</p> 
+              <p className="information"><strong>Velocidade da porta:</strong>10/100/1000</p> 
+            </p>
+            <p className="mensagem"><strong>Placa de Rede: <strong>enp0s2 </strong></strong><br/>
+                <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
+                <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>  
+                <p className="information"><strong>Velocidade da porta:</strong>10/100/1000</p> 
+            </p>
+            <p className="mensagem"><strong>Placa de Rede: <strong>enp0s3 </strong></strong><br/>
+                <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
+                <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
+                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>  
+                <p className="information"><strong>Velocidade da porta:</strong>10/100/1000</p> 
+            </p>
+            
           </div>  
 
-          <div className="containerTwo">
+          <div className="containerRight">
             <h1>Prefixos</h1>
             <p className="mensagem">
               <strong>Públicos</strong>
@@ -79,14 +64,10 @@ export default function Pricing() {
             </p>
             <p className="mensagem">
               <strong>Privado</strong>
-              <p>177.74.240.0/20</p>
-              <p>177.74.240.0/20</p>
+              <p>100.64.0.0/16</p>
             </p>
           </div>
        </div>
-       <div className="footer">
-        <Footer />
-      </div>
       </div>
   );
 }
