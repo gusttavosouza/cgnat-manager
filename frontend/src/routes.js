@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
-import Logs from './pages/Log/Log';
+import Logs from './pages/Logs/Log';
 import Configura from './pages/Setting/Setting';
 import Administra from './pages/Setting/Setting';
 

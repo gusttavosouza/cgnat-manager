@@ -11,22 +11,21 @@ import './Menu.css';
 export default function Menu(){
   return (
     <AppBar position="static" color="default" elevation={0} className={"appBar"}>
-    <Toolbar className={"toolbar"}>
-      <Typography variant="h6" color="inherit" noWrap className={"toolbarTitle"}>
-        <img src={logo} alt="CGNAT Manager" className={"logo"} /> 
-      </Typography>
-        <Link variant="button" color="textPrimary" to="/prefixos" className={"itemOne"}>
-          Prefixos
+      <Toolbar className={"toolbar"}>
+        <Typography variant="h6" color="inherit" noWrap className={"toolbarTitle"}>
+          <img src={logo} alt="CGNAT Manager" className={"logo"} /> 
+        </Typography>
+        <Link variant="button" color="textPrimary" to="/home" className={"itemOne"}>
+          Home
         </Link>
         <Link variant="button" color="textPrimary" to="/config" className={"itemOne"}>
-          Configurações
+          Configurar
         </Link>
         <Link variant="button" color="textPrimary" to="/logs" className={"itemOne"}>
           Logs
-        </Link>
-        
-        <MenuAccount className={"avatar"} />
-    </Toolbar>
-  </AppBar>
+        </Link>    
+        <div className={"avatar"} ><MenuAccount/> </div>
+      </Toolbar>
+    </AppBar>
   );
 }

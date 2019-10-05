@@ -24,6 +24,6 @@ flex-grow: 2
 margin-top: 8px
 }
 
-.avatar{
-background-color: blue
+div .avatar{
+  margin-left: 25px;
 }
