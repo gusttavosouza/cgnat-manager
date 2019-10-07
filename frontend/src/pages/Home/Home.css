@@ -22,7 +22,8 @@
   border-right: #D3D3D3 1px solid;
   border-left: #D3D3D3 1px solid;
   padding: 15px;
-  color: #666
+  color: #666;
+  background-color: #DCDCDC;
 }
 .container-central .containerLeft strong {
   font-size: 18px;
@@ -60,7 +61,8 @@
   border-right: #D3D3D3 1px solid;
   border-left: #D3D3D3 1px solid;
   padding: 15px;
-  color: #666
+  color: #666;
+  background-color: #DCDCDC;
 }
 .container-central .containerMiddle strong {
   font-size: 18px;
@@ -119,6 +121,7 @@
   color: #666;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  background-color: #DCDCDC;
 }
 .container .footer{
     position: absolute;
