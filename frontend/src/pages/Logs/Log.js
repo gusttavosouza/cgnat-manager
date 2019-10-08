@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Menu from '../../components/Menu/Menu';
 import './Log.css';
 
@@ -93,17 +92,25 @@ export default function Logs() {
             </div>
             
         </div>
-        <div className="container-filter">
-          <h1>Filtrar</h1>
-          <p>Endereço IP: <br /><input type="text" /></p>
-          <p>Porta: <br /><input type="text" /></p>
-          <p>Status:
-            <select >
-              <option selected>Ativo</option>
-              <option>Desativado</option>
+        <div className="container-filter">  
+          <div className="ajusta">
+            <h1>Filtrar</h1>
+          <form>
+            <input 
+              placeholder="Endereço IP"
+              className="endereco"
+            />
+            <select className="selecioneEndereco">
+              <option>Privado</option>
+              <option>Público</option>
             </select>
-          </p>
-          <button>Filtrar</button>
+            <input 
+              placeholder="Porta"
+              className="porta"
+            />
+            <br /><button type="submit" className="botao">Filtrar</button>
+          </form>
+          </div>
         </div>
       </div>
     </div>

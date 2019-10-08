@@ -113,9 +113,8 @@
 
 .container-filter {
   width: 27%;
-  height: 400px;
   margin-left: 2%;
-  border: 1px solid #d3d3d3;
+  border-top: 1px solid #d3d3d3;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -126,7 +125,9 @@
   padding: 10px;
   border-bottom: 1px solid #d3d3d3;
   color:#333;
-  background-color: #DCDCDC
+  background-color: #DCDCDC;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .container-filter p {
@@ -136,9 +137,61 @@
   color: #333
 }
 
-.container-filter input {
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 35px;
+.textField {
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 5px;
 }
 
+.container-filter form {
+  padding: 20px;
+}
+
+.container-filter .endereco {
+  width: 50%
+}
+
+.container-filter .porta {
+  width: 100%
+}
+
+.container-filter form input{
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+}
+.container-filter form input::placeholder{
+  color: #999;
+}
+
+.container-filter .selecioneEndereco {
+  height: 47px;
+  margin-left: 5px;
+  width: 48%;
+  font-size: 15px;
+  border-radius:5px
+}
+
+.container-filter .botao {
+  margin-top: 15px;
+  height: 40px;
+  width: 30%;
+  border-radius: 5px;
+  background-color: #5cb85c;
+  border: 0px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ajusta {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
