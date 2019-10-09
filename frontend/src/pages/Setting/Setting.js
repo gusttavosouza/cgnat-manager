@@ -7,10 +7,24 @@ export default function Logs() {
     <div className="container">
       <Menu />
       <div className="container-central">
-        <div className="container-datas">
+        <div className="container-configurar">
           <h1>Configurar</h1>
+
+          <input 
+              placeholder="Endereço IP"
+              className="endereco"
+            />
+            <input 
+              placeholder="Endereço IP"
+              className="endereco"
+            />
+            <input 
+              placeholder="Endereço IP"
+              className="endereco"
+            />
+            <button type="submit" className="botao">Filtrar</button>
         </div>
-        <div className="container-filter">  
+        <div className="container-validar">  
           <div className="ajusta">
             <h1>Validar</h1>
           </div>

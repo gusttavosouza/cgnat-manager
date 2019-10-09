@@ -4,7 +4,7 @@ import './Log.css';
 
 export default function Logs() {
   return (
-    <div className="container">
+    <div>
       <Menu />
       <div className="container-central">
         <div className="container-datas">

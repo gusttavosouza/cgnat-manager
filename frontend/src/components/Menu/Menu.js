@@ -18,7 +18,7 @@ export default function Menu(){
         <Link variant="button" color="textPrimary" to="/home" className={"itemOne"}>
           Home
         </Link>
-        <Link variant="button" color="textPrimary" to="/config" className={"itemOne"}>
+        <Link variant="button" color="textPrimary" to="/setting" className={"itemOne"}>
           Configurar
         </Link>
         <Link variant="button" color="textPrimary" to="/logs" className={"itemOne"}>
