@@ -31,8 +31,7 @@ export default function Pricing() {
               <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
               <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
               <p className="information"><strong>Trafego Entrando:</strong>800 pacotes</p> 
-              <p className="information"><strong>Trafego Saindo:</strong>800 pacotes</p> 
-              <p className="information"><strong>Velocidade da porta:</strong>10/100/1000</p> 
+              <p className="information"><strong>Trafego Saindo:</strong>800 pacotes</p>  
             </p>
             <p className="mensagem"><strong>Placa de Rede: <strong>enp0s2 </strong></strong><br/>
                 <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
@@ -40,7 +39,6 @@ export default function Pricing() {
                 <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>
                 <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
                 <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>  
-                <p className="information"><strong>Velocidade da porta:</strong>10/100/1000</p> 
             </p>
           </div>  
           <div className="containerRight">

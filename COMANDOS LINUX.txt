@@ -1,0 +1,16 @@
+Pegar os IPs das interfaces
+ip add | grep --text -i 'inet ' | cut -f1 -d ':' | awk '{print $2}'
+
+Pegar pacotes entrando e saindo
+ifconfig | grep --text -i 'RX packets ' | cut -f1 -d ':' | awk '{print $3}'
+ifconfig | grep --text -i 'TX packets ' | cut -f1 -d ':' | awk '{print $3}'
+
+Pegar trafego entrando e saindo
+ifconfig | grep --text -i 'RX packets ' | cut -f1 -d ':' | awk '{print $5}'  //BYTES
+ifconfig | grep --text -i 'TX packets ' | cut -f1 -d ':' | awk '{print $5}'  //BYTES
+
+COMANDO IPTABLES CGNAT (PORTA)
+iptables -t nat -A POSTROUTING -o enp0s8 -s 192.168.0.0/24 -p tcp -j SNAT --to 10.100.101.104:2048-4096
+
+COMANDO IPTABLES  (NAT padrão):
+iptables -t nat -A POSTROUTING -o enp0s8 -s 192.168.0.0/24 -j SNAT --to-source 10.100.101.104
