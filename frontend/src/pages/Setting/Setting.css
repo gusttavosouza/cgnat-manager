@@ -4,19 +4,16 @@
   margin-left: 2%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 300px;
   border: 1px solid #d3d3d3;
-
+  padding-bottom: 20px;
 }
 
 .container-central .container-validar {
   width: 54%;
   margin-left: 2%;
-  border: 1px solid #d3d3d3;
+  border: 1px solid #ddd;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 300px;
-  
 }
 
 .title {
@@ -32,11 +29,39 @@
 }
 
 .container-central .container-configurar input {
-  margin-top: 10px;
+  margin-top: 30px;
   border: 1px solid #ddd;
   border-radius: 4px;
   height: 48px;
   padding: 0 20px;
   font-size: 16px;
   color: #666;
+}
+
+.container-central .container-configurar .endereco-privado {
+  margin-left: 3%;
+  width: 55%
+}
+
+.container-central .container-configurar .quantidade-porta {
+  margin-left: 3%;
+  width: 35%
+}
+
+.container-central .container-configurar .endereco-publicos {
+  margin-left: 3%;
+  width: 93%;
+}
+
+.container-central .container-configurar .addValidar {
+  margin-top: 15px;
+  height: 48px;
+  width: 20%;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #DCDCDC;
+  margin-left: 76%;
 }
