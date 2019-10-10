@@ -1,14 +1,7 @@
 import { Router } from "express";
-import shell from "shelljs";
-
+import HomeController from './app/controllers/HomeController'
 const routes = new Router();
 
-routes.post("/", (req, res) => {
-  const { command } = req.body;
-  console.log(command)
-  const t = shell.exec(command);
-  console.log(t.stdout)
-  return res.json({ message: t.stdout });
-});
+routes.get('/home', HomeController.index())
 
 export default routes;
