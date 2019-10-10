@@ -8,7 +8,7 @@
 
 .container-central .container-datas .data{
   width: 100%;
-  padding-left: 5px;
+
   padding-top:15px;
   padding-bottom:15px;
   padding-right:15px;
@@ -26,14 +26,40 @@
   margin-right: 20px;
 }
 
+.container-central .container-datas .data-fixa .fixoOne {
+  position: relative;
+  margin-left: 2%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 149px;
+}
+.container-central .container-datas .data-fixa .fixoTwo {
+  position: absolute;
+  margin-left: 2%;
+}
+.container-central .container-datas .data-fixa .fixoThree {
+  position: absolute;
+  margin-left: 14%
+}
+.container-central .container-datas .data-fixa .fixoFour {
+  position: absolute;
+  margin-left: 27%
+}
+.container-central .container-datas .data-fixa .fixoFive {
+  position: absolute;
+  margin-left: 40%
+}
+
+
 .container-central .container-datas .data .infoOne {
   position: relative;
   margin-left: 2%;
-  padding: 10px
+  padding: 10px;
 }
 .container-central .container-datas .data .infoTwo {
   position: absolute;
-  margin-left: 2%
+  margin-left: 1%;
 }
 .container-central .container-datas .data .infoThree {
   position: absolute;
@@ -81,27 +107,7 @@
   background-color: #DCDCDC
 }
 
-.container-central .container-datas .data-fixa .fixoOne {
-  position: relative;
-  margin-left: 2%;
-  padding: 10px
-}
-.container-central .container-datas .data-fixa .fixoTwo {
-  position: absolute;
-  margin-left: 14%
-}
-.container-central .container-datas .data-fixa .fixoThree {
-  position: absolute;
-  margin-left: 26%
-}
-.container-central .container-datas .data-fixa .fixoFour {
-  position: absolute;
-  margin-left: 39%
-}
-.container-central .container-datas .data-fixa .fixoFive {
-  position: absolute;
-  margin-left: 52%
-}
+
 
 .container-filter {
   width: 27%;

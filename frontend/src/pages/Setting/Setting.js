@@ -8,8 +8,7 @@ export default function Logs() {
       <Menu />
       <div className="container-central">
         <div className="container-configurar">
-          <h1>Configurar</h1>
-
+          <div className="title">Configurar</div>
           <input 
               placeholder="Endereço IP"
               className="endereco"
@@ -25,9 +24,7 @@ export default function Logs() {
             <button type="submit" className="botao">Filtrar</button>
         </div>
         <div className="container-validar">  
-          <div className="ajusta">
-            <h1>Validar</h1>
-          </div>
+            <div className="title">Validar</div>
         </div>
       </div>
     </div>
