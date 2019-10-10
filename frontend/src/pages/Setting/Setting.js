@@ -24,7 +24,7 @@ export default function Logs() {
             <input 
               placeholder="Endereço ou Rede Pública"
               className="endereco-publicos"
-            />
+            />yaen
             <br /><button type="submit" className="addValidar">Add >></button>
         </div>
         <div className="container-validar">  

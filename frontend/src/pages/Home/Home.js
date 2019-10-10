@@ -27,18 +27,20 @@ export default function Pricing() {
           <div className="containerMiddle">
             <h1>Informações CGNAT</h1>
             <p className="mensagem"><strong>Placa de Rede: <strong>enp0s1 </strong></strong><br/>
-              <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
-              <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
-              <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
-              <p className="information"><strong>Trafego Entrando:</strong>800 pacotes</p> 
-              <p className="information"><strong>Trafego Saindo:</strong>800 pacotes</p>  
+              <p className="information"><strong>Endereço IPv4:</strong>100.64.10.1/24</p>
+              <p className="information"><strong>Mascara de Rede</strong>255.255.255.255</p>
+              <p className="information"><strong>Pacotes Enviados:</strong>3000 pacotes</p>
+              <p className="information"><strong>Pacotes Recebidos:</strong>800 pacotes</p> 
+              <p className="information"><strong>Erros Recebimento:</strong>800 pacotes</p> 
+              <p className="information"><strong>Erros Transmissão:</strong>800 pacotes</p>  
             </p>
             <p className="mensagem"><strong>Placa de Rede: <strong>enp0s2 </strong></strong><br/>
-                <p className="information"><strong>Endereço IP:</strong>100.64.10.1/24</p>
-                <p className="information"><strong>Pacotes Saindo:</strong>3000 pacotes</p>
-                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>
-                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p> 
-                <p className="information"><strong>Pacotes Entrando:</strong>800 pacotes</p>  
+            <p className="information"><strong>Endereço IPv4:</strong>100.64.10.1/24</p>
+              <p className="information"><strong>Mascara de Rede</strong>255.255.255.255</p>
+              <p className="information"><strong>Pacotes Enviados:</strong>3000 pacotes</p>
+              <p className="information"><strong>Pacotes Recebidos:</strong>800 pacotes</p> 
+              <p className="information"><strong>Erros Recebimento:</strong>800 pacotes</p> 
+              <p className="information"><strong>Erros Transmissão:</strong>800 pacotes</p>  
             </p>
           </div>  
           <div className="containerRight">
