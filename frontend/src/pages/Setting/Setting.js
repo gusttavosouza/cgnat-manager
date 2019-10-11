@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from 'mui-datatables';
 import Menu from '../../components/Menu/Menu';
 import { tableConfig, columsTable} from './tableConfig';
@@ -6,6 +6,20 @@ import { tableConfig, columsTable} from './tableConfig';
 import './Setting.css';
 
 export default function Logs() {
+
+  const [listConfigs, setListConfigs] = useState([]);
+  const [addressLocal, setAddressLocal] = useState("");
+  const [addressGlobal, setAddressGlobal] = useState("")
+  const [amountPorts, setAmountPorts] = useState("");
+  const [amountAddressGlobal, setAmountAddressGlobal] = useState("");
+
+ function addList(){
+   setListConfigs([...listConfigs, [addressLocal, addressGlobal, amountPorts, "NÃO"]])
+ }
+
+ function handleAmountAddressGlobal(value){
+    setAmountPorts(value)
+ }
   return (
     <div className="container">
       <Menu />
@@ -15,23 +29,28 @@ export default function Logs() {
           <input 
               placeholder="Endereço ou Rede Privada"
               className="endereco-privado"
+              onChange={e => setAddressLocal(e.target.value)}
             />
             <input 
               placeholder="Quantidade Portas"
               className="quantidade-porta"
-              type="number"
+              onChange={e => handleAmountAddressGlobal(e.target.value)}
             />
+
             <input 
               placeholder="Endereço ou Rede Pública"
               className="endereco-publicos"
+              onChange={e => setAddressGlobal(e.target.value)}
             />
-            <br /><button type="submit" className="addValidar">Add >></button>
+            <br /><button type="submit" className="addValidar" onClick={addList}>Add >></button>
         </div>
+        
         <div className="container-validar">  
-            <div className="title">Validar</div>
             <Table 
               options={tableConfig}
               columns={columsTable}
+              data={listConfigs}
+              title="VALIDAR"
             />
         </div>
       </div>

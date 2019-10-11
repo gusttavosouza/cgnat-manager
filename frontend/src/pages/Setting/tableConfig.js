@@ -3,7 +3,7 @@ export const tableConfig = {
     pagination: true,
     sort: false,
     selectableRows: true,
-    search: false,
+    search: true,
     download: false,
     print: false,
     filter: false,
@@ -31,5 +31,9 @@ export const columsTable = [
   {
     name: "LabelPorts",
     label: "Portas"
+  },
+  {
+    name: "LabeIsProduction",
+    label: "Em produção"
   }
 ];
