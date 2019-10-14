@@ -16,7 +16,10 @@ export default function Logs() {
   const [amountAddressGlobal, setAmountAddressGlobal] = useState("");
 
   function addList(){
+    const octetsPrivate = networkLocal.split('.');
 
+    
+    console.log(octetsPrivate)
   }
 
   function handleAmountAddressGlobal(ports){
@@ -90,7 +93,6 @@ export default function Logs() {
               {maskGlobal >= 31 ? <option value="31">/31</option> : null}
               {maskGlobal >= 32 ? <option value="32">/32</option> : null}    
             </select>
-            
             <br /><button type="submit" className="addValidar" onClick={addList}>Add >></button>
         </div>
         
