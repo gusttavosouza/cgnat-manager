@@ -2,7 +2,7 @@ export const tableConfig = {
     filterType: "checkbox",
     pagination: true,
     sort: false,
-    selectableRows: true,
+    selectableRows: "multiple",
     search: true,
     download: false,
     print: false,

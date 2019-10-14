@@ -41,7 +41,7 @@
 
 .container-central .container-configurar .endereco-privado {
   margin-left: 3%;
-  width: 55%
+  width: 44%
 }
 
 .container-central .container-configurar .quantidade-porta {
@@ -51,7 +51,7 @@
 
 .container-central .container-configurar .endereco-publicos {
   margin-left: 3%;
-  width: 93%;
+  width: 75%;
 }
 
 .container-central .container-configurar .addValidar {
@@ -65,4 +65,30 @@
   border-radius: 5px;
   background-color: #DCDCDC;
   margin-left: 76%;
+}
+
+.selecioneEndereco {
+  height: 47px;
+  margin-left: 5px;
+  width: 10%;
+  font-size: 15px;
+  border-radius:5px
+}
+
+.selecioneEnderecoPublico {
+  height: 47px;
+  margin-left: 5px;
+  width: 17%;
+  font-size: 15px;
+  border-radius:5px
+}
+
+.msg-ajuda {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 7%;
+  margin-bottom: -15px
 }
