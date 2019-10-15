@@ -17,9 +17,18 @@ export default function Logs() {
 
   function addList(){
     const octetsPrivate = networkLocal.split('.');
+    const amountAddressPrivate = Math.pow(2, (32 - maskLocal));
+    let amountProcessed = 0;
 
-    
-    console.log(octetsPrivate)
+    for(let i = octetsPrivate[3]; i <= octetsPrivate[3]+amountAddressPrivate; i++){
+      if(amountProcessed < 256){
+        console.log(`${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${i}`)
+      }else {
+        octetsPrivate[2] += 1;
+        octetsPrivate[3] = 0;
+        console.log(`${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${i}`)
+      }
+    }
   }
 
   function handleAmountAddressGlobal(ports){
