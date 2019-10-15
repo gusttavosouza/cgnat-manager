@@ -7,7 +7,7 @@ import './Setting.css';
 
 export default function Logs() {
 
-  const [listConfig, setListConfigs] = useState([]);
+  const [listConfig, setListConfig] = useState([]);
   const [networkLocal, setAddressLocal] = useState("");
   const [maskLocal, setMaskLocal] = useState(24);
   const [networkGlobal, setAddressGlobal] = useState("")
@@ -17,18 +17,45 @@ export default function Logs() {
 
   function addList(){
     const octetsPrivate = networkLocal.split('.');
+    const octetsPublic = networkGlobal.split('.');
     const amountAddressPrivate = Math.pow(2, (32 - maskLocal));
-    let amountProcessed = 0;
+    let currentPort = 5000;
+    let vetInfos = [];
+    let AddressIpLocal = "";
+    let AddressIpGlobal = "";
+    let Ports = "";
+    let InProduction = "NÃO";
 
-    for(let i = octetsPrivate[3]; i <= octetsPrivate[3]+amountAddressPrivate; i++){
-      if(amountProcessed < 256){
-        console.log(`${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${i}`)
-      }else {
-        octetsPrivate[2] += 1;
+    for(let amountProcessed = 0; amountProcessed < amountAddressPrivate; amountProcessed++){
+      if(octetsPrivate[3] < 256){
+        AddressIpLocal = `${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${octetsPrivate[3]}`;
+        AddressIpGlobal = `${octetsPublic[0]}.${octetsPublic[1]}.${octetsPublic[2]}.${octetsPublic[3]}`;
+        Ports = `${currentPort}-${(parseInt(currentPort)+parseInt(amountPorts))-1}`;
+        vetInfos.push([AddressIpLocal, AddressIpGlobal, Ports, InProduction])
+        octetsPrivate[3]++;
+        currentPort = parseInt(currentPort) + parseInt(amountPorts);
+        if(parseInt(currentPort) + parseInt(amountPorts) > 65000){
+          octetsPublic[3] = parseInt(octetsPublic[3]+1);
+          currentPort = 5000;
+        }
+      }else{
+        octetsPrivate[2] = parseInt(octetsPrivate[2]) + 1;
         octetsPrivate[3] = 0;
-        console.log(`${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${i}`)
+        AddressIpLocal = `${octetsPrivate[0]}.${octetsPrivate[1]}.${octetsPrivate[2]}.${octetsPrivate[3]}`;
+        AddressIpGlobal = `${octetsPublic[0]}.${octetsPublic[1]}.${octetsPublic[2]}.${octetsPublic[3]}`;
+        Ports = `${currentPort}-${(parseInt(currentPort)+parseInt(amountPorts))-1}`;
+        vetInfos.push([AddressIpLocal, AddressIpGlobal, Ports, InProduction])
+        octetsPrivate[3]++;
+        currentPort = parseInt(currentPort) + parseInt(amountPorts);
+        if(parseInt(currentPort) + parseInt(amountPorts) > 60000){
+          octetsPublic[3] = parseInt(octetsPublic[3]+1);
+          currentPort = 5000;
+        }
       }
-    }
+      console.log(`Add ${AddressIpLocal}`)
+
+      setListConfig(...listConfig, vetInfos)
+    }  
   }
 
   function handleAmountAddressGlobal(ports){
