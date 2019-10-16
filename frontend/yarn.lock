@@ -4961,6 +4961,11 @@ ip-regex@^2.1.0:
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
   integrity sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
 
+ip-subnet-calculator@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/ip-subnet-calculator/-/ip-subnet-calculator-1.1.8.tgz#9bc02e233d5a43efae7adeb45f6a694b82b970fd"
+  integrity sha1-m8AuIz1aQ++uet60X2ppS4K5cP0=
+
 ip@^1.1.0, ip@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
