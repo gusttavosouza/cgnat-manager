@@ -3,8 +3,8 @@ import sha1 from 'sha1';
 
 class LoginController {
     async index(req,res) {
-        const { user, password } = req.body;
-       
+       const { user, password } = req.body;
+       console.log(user, password)
        const password_hash = sha1(password);
         let listUserSeparada = [];
         fs.readFile('archive/auth', function(err, data) {
@@ -14,12 +14,11 @@ class LoginController {
                 const listUser = data.toString('utf8').split('\n');
                 listUserSeparada =  listUser.map(e => e = e.split('<->'))
                 for(let i = 0; i < listUserSeparada.length; i++){
-                    console.log(`Senha Cadastrada ${listUserSeparada[i][1]}`)
                     if(listUserSeparada[i][0] === user && listUserSeparada[i][1] === password_hash){
                         return res.json({"auth": true});
                     }
                 }
-                return res.status(400).json({"auth": false})
+                return res.json({"auth": false})
             }
         })
     }

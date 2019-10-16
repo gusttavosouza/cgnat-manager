@@ -35,13 +35,12 @@ export default function Login({ history }){
     );
   }
   
-  function handleSubmit(){
-      const response = true;
-      // api.post('/auth', {
-      //   user: user,
-      //   password: password
-      // })
-      if(response){
+  async function handleSubmit(){
+      const res = await api.post('/login', {
+        user,password
+      })
+      console.log(res.data)
+      if(res.data.auth){
         window.localStorage.setItem('auth', 'true');
         history.push(`/home`)
       }else{
@@ -51,7 +50,7 @@ export default function Login({ history }){
 
   return(
     <div className="login-container">
-      <form onSubmit={handleSubmit}>
+      <section>
         <img src={logo} alt="CGNAT Manager" />
         <input 
             placeholder="E-mail"
@@ -60,11 +59,12 @@ export default function Login({ history }){
         />
         <input 
             placeholder="Senha"
+            type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
-      </form>
+        <button onClick={handleSubmit}>Entrar</button>
+      </section>
       <div>
         <Footer className="footer"/>
       </div>

@@ -19,7 +19,6 @@ export default function Pricing({history}) {
     async function loadHome(){
         const response = await api.get('/home', {})
         setInterfacesList(response.data)
-        console.log(response.data)
     }
     loadHome();
 // eslint-disable-next-line react-hooks/exhaustive-deps
