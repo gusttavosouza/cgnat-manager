@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Table from 'mui-datatables';
-import Menu from '../../components/Menu/Menu';
-import { tableConfig, columsTable} from './tableConfig';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import Icon from '@material-ui/core/Icon';
 import calc from 'ip-subnet-calculator';
 
+import Menu from '../../components/Menu/Menu';
+
+import { tableConfig, columsTable} from './tableConfig';
 import './Setting.css';
 
 export default function Logs() {
@@ -15,6 +19,15 @@ export default function Logs() {
   const [maskGlobal, setMaskGlobal] = useState(24);
   const [amountPorts, setAmountPorts] = useState("");
   const [amountAddressGlobal, setAmountAddressGlobal] = useState("");
+
+  function clearLabels(){
+    setAddressLocal("");
+    setMaskLocal(24);
+    setAddressGlobal("");
+    setMaskGlobal(24);
+    setAmountPorts("");
+  }
+
 
   function addList(){
     const localAddress = calc.calculateSubnetMask(networkLocal, maskLocal);
@@ -47,6 +60,7 @@ export default function Logs() {
       }
     }
     setListConfig(...listConfig, vetConfigs);
+    clearLabels();
   }
 
   function handleAmountAddressGlobal(ports){
@@ -73,6 +87,7 @@ export default function Logs() {
                 placeholder="Endereço Rede Privada"
                 className="endereco-privado"
                 onChange={e => setAddressLocal(e.target.value)}
+                value={networkLocal}
             />
             <select className="selecioneEndereco" value={maskLocal} onChange={ maskLocal => setMaskLocal(maskLocal.target.value)}>
               <option value="16">/16</option>
@@ -98,12 +113,14 @@ export default function Logs() {
               placeholder="Quantidade Portas"
               className="quantidade-porta"
               onChange={e => handleAmountAddressGlobal(e.target.value)}
+              value={amountPorts}
             />
             {amountPorts !== "" ? <p className="msg-ajuda">{`São necessários ${amountAddressGlobal} IPs públicos. Recomenda-se a utilização de uma rede /${maskGlobal}`}</p> : null}
             <input 
               placeholder="Endereço Rede Pública"
               className="endereco-publicos"
               onChange={e => setAddressGlobal(e.target.value)}
+              value={networkGlobal}
             />
             <select className="selecioneEnderecoPublico" value={maskGlobal} onChange={ maskGlobal => setMaskGlobal(maskGlobal.target.value)}>                         
               {maskGlobal >= 20 ? <option value="20">/20</option> : null}
@@ -120,8 +137,17 @@ export default function Logs() {
               {maskGlobal >= 31 ? <option value="31">/31</option> : null}
               {maskGlobal >= 32 ? <option value="32">/32</option> : null}    
             </select>
-            <br /><button type="submit" className="addValidar" onClick={addList}>Add >></button>
-        </div>
+            <Button
+              variant="contained"
+              color="primary"
+              className="btnAddValidar"
+              size="large"
+              endIcon={<Icon>send</Icon>}
+              onClick={addList}
+            >
+            Adicionar
+            </Button>
+          </div>
         
         <div className="container-validar">  
             <Table 
@@ -130,6 +156,15 @@ export default function Logs() {
               data={listConfig}
               title="VALIDAR"
             />
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              className="btnValidar"
+              startIcon={<SaveIcon />}
+            >
+              Salvar
+            </Button>
         </div>
       </div>
     </div>

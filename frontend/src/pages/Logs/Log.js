@@ -1,117 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Table from 'mui-datatables';
+
 import Menu from '../../components/Menu/Menu';
+import { tableConfig, columsTable} from './tableConfig';
 import './Log.css';
 
 export default function Logs() {
+
+  const [listLogs, setListLogs] = useState([
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+    ["10/10/2019 - 00/00/0000", "170.70.72.0", "192.168.0.1", "5000 - 7999", "Desativado"],
+  ]);
+
   return (
     <div>
       <Menu />
-      <div className="container-central">
-        <div className="container-datas">
-            <div className="data-fixa">
-              <p>
-                <strong className="fixoOne">Data</strong>
-                <strong className="fixoTwo">IP Local</strong>
-                <strong className="fixoThree">IP Global</strong>
-                <strong className="fixoFour">Portas</strong>
-                <strong className="fixoFive">Status</strong>
-              </p> 
-            </div>
-
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 00/00/0000</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveAtivado">Ativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 00/00/0000</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveAtivado">Ativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 00/00/0000</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveAtivado">Ativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 07/10/2019</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveDesativado">Desativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 05/10/2019</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveDesativado">Desativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 00/00/0000</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveAtivado">Ativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 06/10/2019</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveDesativado">Desativado</strong>
-              </p>             
-            </div>
-            <div className="data">
-              <p>
-                <strong className="infoOne">03/10/2019 - 00/00/0000</strong>
-                <strong className="infoTwo">255.255.255.255</strong>
-                <strong className="infoThree">255.255.255.255</strong>
-                <strong className="infoFour">50000-79990</strong>
-                <strong className="infoFiveAtivado">Ativado</strong>
-              </p>             
-            </div>
-            
-        </div>
-        <div className="container-filter">  
-          <div className="ajusta">
-            <h1>Filtrar</h1>
-          <form>
-            <input 
-              placeholder="Endereço IP"
-              className="endereco"
-            />
-            <select className="selecioneEndereco">
-              <option>Privado</option>
-              <option>Público</option>
-            </select>
-            <input 
-              placeholder="Porta"
-              className="porta"
-            />
-            <br /><button type="submit" className="botao">Filtrar</button>
-          </form>
-          </div>
-        </div>
+      <div className="containerTable">
+        <Table 
+          options={tableConfig}
+          columns={columsTable}
+          data={listLogs}
+          title="LOGs"
+        />
       </div>
     </div>
   );

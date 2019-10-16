@@ -15,6 +15,7 @@
   border: 1px solid #ddd;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  padding-bottom: 25px;
 }
 
 .title {
@@ -91,4 +92,16 @@
   margin-top: 15px;
   margin-left: 7%;
   margin-bottom: -15px
+}
+
+.btnValidar {
+  top: 12px;
+  left: 80%;
+  margin: 8px;
+}
+
+.btnAddValidar {
+  top: 20px;
+  left: 68%;
+  margin: 8px
 }
