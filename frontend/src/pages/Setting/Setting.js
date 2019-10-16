@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'mui-datatables';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
@@ -10,8 +10,16 @@ import Menu from '../../components/Menu/Menu';
 import { tableConfig, columsTable} from './tableConfig';
 import './Setting.css';
 
-export default function Logs() {
+export default function Logs({history}) {
 
+  useEffect(() => {
+    const auth = window.localStorage.getItem('auth');
+    if(auth === "false") {
+      alert("Você não está autenticado, faça login para ter acesso a essa página!");
+      history.push("/login");
+      return;
+    }
+  })
   const [listConfig, setListConfig] = useState([]);
   const [networkLocal, setAddressLocal] = useState("");
   const [maskLocal, setMaskLocal] = useState(24);
@@ -54,7 +62,7 @@ export default function Logs() {
           `${lastIpLocal[0]}.${lastIpLocal[1]}.${i}.${j}`,
           `${firstIpGlobal[0]}.${firstIpGlobal[1]}.${firstIpGlobal[2]}.${firstIpGlobal[3]}`,
           `${currentPort}-${parseInt(currentPort)+parseInt(amountPorts)-1}`,
-          `NÂO`  
+          `NÃO`  
         ]);
         currentPort = parseInt(currentPort) + parseInt(amountPorts);
       }

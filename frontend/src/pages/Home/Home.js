@@ -5,10 +5,17 @@ import api from '../../services/api';
 
 import './Home.css';
 
-export default function Pricing() {
+export default function Pricing({history}) {
   const [interfacesList, setInterfacesList] = useState([]);
 
   useEffect(() => {
+    const auth = window.localStorage.getItem('auth');
+    if(auth === "false") {
+      alert("Você não está autenticado, faça login para ter acesso a essa pagína!");
+      history.push("/login");
+      return;
+    }
+
     async function loadHome(){
         const response = await api.get('/home', {})
         setInterfacesList(response.data)

@@ -7,16 +7,19 @@
 
 .login-container form {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     display: flex;
-    flex-direction: column;
-    border: #cecece 0.5px solid;
-    border-radius: 2px;
-    padding: 30px;
-    margin-left: 100px
+    flex-direction: column
 }
+
+.login-container form img {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
 .login-container form input{
-    margin-top: 10px;
+    margin-top: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
     height: 48px;
@@ -39,7 +42,6 @@
     font-weight: bold;
     cursor: pointer;
 }
-
 .login-container div {
   position: absolute;
   height: 50px;
@@ -48,3 +50,4 @@
   border-top: #D3D3D3 1px solid;
   padding-top: 15px;
 }
+

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Login.css';
-import logo from '../../assets/logo-grande.jpg';
+import logo from '../../assets/logo-pequeno-com-fundo.jpg';
+import api from '../../services/api';
 
-export default function Login(){
+export default function Login({ history }){
 
+  useEffect(() => {
+      const auth =  window.localStorage.getItem('auth');
+      if(auth === "true") {
+        history.push("/home");
+      }
+  });
+
+  const [user, setUser] = useState("")
+  const [password, setPassword] = useState("");
+  
   function Footer() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
@@ -24,15 +35,33 @@ export default function Login(){
     );
   }
   
+  function handleSubmit(){
+      const response = true;
+      // api.post('/auth', {
+      //   user: user,
+      //   password: password
+      // })
+      if(response){
+        window.localStorage.setItem('auth', 'true');
+        history.push(`/home`)
+      }else{
+        alert("Usuário Incorreto!");
+      }
+  }
+
   return(
     <div className="login-container">
-      <img src={logo} alt="CGNAT Manager"/>
-      <form>
+      <form onSubmit={handleSubmit}>
+        <img src={logo} alt="CGNAT Manager" />
         <input 
-          placeholder="E-mail"
+            placeholder="E-mail"
+            value={user}
+            onChange={e => setUser(e.target.value)}
         />
         <input 
-          placeholder="Senha"
+            placeholder="Senha"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
         />
         <button type="submit">Entrar</button>
       </form>

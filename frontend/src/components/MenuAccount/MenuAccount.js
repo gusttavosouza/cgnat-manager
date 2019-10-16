@@ -24,9 +24,15 @@ class MenuAccount extends React.Component {
     if (this.anchorEl.contains(event.target)) {
       return;
     }
-
     this.setState({ open: false });
   };
+
+  logout = () => {
+    window.localStorage.setItem("auth", "false");
+    const url = window.location.href.split('/')
+    const novoUrl = `http://${url[2]}/login`;
+    window.location.href = novoUrl; 
+  }
 
   render() {
     const { open } = this.state;
@@ -63,7 +69,7 @@ class MenuAccount extends React.Component {
                 <Paper>
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList>
-                      <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                      <MenuItem onClick={this.logout}>Logout</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
