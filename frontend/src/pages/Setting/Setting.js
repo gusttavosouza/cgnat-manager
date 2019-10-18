@@ -6,6 +6,7 @@ import Icon from '@material-ui/core/Icon';
 import calc from 'ip-subnet-calculator';
 
 import Menu from '../../components/Menu/Menu';
+import api from '../../services/api';
 
 import { tableConfig, columsTable} from './tableConfig';
 import './Setting.css';
@@ -19,8 +20,15 @@ export default function Logs({history}) {
       history.push("/login");
       return;
     }
+
+    async function loadHome(){
+      const response = await api.get('/setting', {})
+      console.log(response)
+      setListConfig(response.data)
+    }
+    loadHome();
   })
-  const [listConfig, setListConfig] = useState([]);
+  const [listConfig, setListConfig] = useState();
   const [networkLocal, setAddressLocal] = useState("");
   const [maskLocal, setMaskLocal] = useState(24);
   const [networkGlobal, setAddressGlobal] = useState("")
@@ -67,7 +75,7 @@ export default function Logs({history}) {
         currentPort = parseInt(currentPort) + parseInt(amountPorts);
       }
     }
-    setListConfig(...listConfig, vetConfigs);
+    setListConfig([...listConfig, vetConfigs]);
     clearLabels();
   }
 

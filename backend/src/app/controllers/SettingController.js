@@ -10,11 +10,12 @@ class SettingController {
     let listRoles = []
     for(let i = 0; i < vetRolesSeparados.length - 1; i++){
       let resto = vetRolesSeparados[i][33].split(':');
-      listRoles.push({
-        ipLocal: vetRolesSeparados[i][11],
-        ipGlobal: resto[1],
-        ports: resto[2]
-      })
+      listRoles.push([
+       vetRolesSeparados[i][11],
+       resto[1],
+       resto[2],
+       "SIM"
+      ])
     }
     return res.json(listRoles);
   }

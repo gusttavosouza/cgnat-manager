@@ -3,6 +3,8 @@ import Table from 'mui-datatables';
 
 import Menu from '../../components/Menu/Menu';
 import { tableConfig, columsTable} from './tableConfig';
+import api from '../../services/api';
+
 import './Log.css';
 
 export default function Logs({ history }) {
