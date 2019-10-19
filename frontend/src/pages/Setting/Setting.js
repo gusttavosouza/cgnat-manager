@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Table from 'mui-datatables';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
@@ -24,11 +24,17 @@ export default function Logs({history}) {
     async function loadHome(){
       const response = await api.get('/setting', {})
       console.log(response)
-      setListConfig(response.data)
+      setListConfig([...listConfig, ...response.data])
     }
-    loadHome();
-  })
-  const [listConfig, setListConfig] = useState();
+    if(refresh){
+      loadHome();
+      setRefresh(false);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const [refresh, setRefresh] = useState(true);
+  const [listConfig, setListConfig] = useState([]);
   const [networkLocal, setAddressLocal] = useState("");
   const [maskLocal, setMaskLocal] = useState(24);
   const [networkGlobal, setAddressGlobal] = useState("")
@@ -43,7 +49,6 @@ export default function Logs({history}) {
     setMaskGlobal(24);
     setAmountPorts("");
   }
-
 
   function addList(){
     const localAddress = calc.calculateSubnetMask(networkLocal, maskLocal);
@@ -66,6 +71,8 @@ export default function Logs({history}) {
           }
           currentPort = 5000;
         }
+
+
         vetConfigs.push([
           `${lastIpLocal[0]}.${lastIpLocal[1]}.${i}.${j}`,
           `${firstIpGlobal[0]}.${firstIpGlobal[1]}.${firstIpGlobal[2]}.${firstIpGlobal[3]}`,
@@ -74,8 +81,11 @@ export default function Logs({history}) {
         ]);
         currentPort = parseInt(currentPort) + parseInt(amountPorts);
       }
+      console.log( 'entrouuu')
     }
-    setListConfig([...listConfig, vetConfigs]);
+
+    setListConfig([...listConfig, ...vetConfigs])
+    console.log(listConfig)
     clearLabels();
   }
 
