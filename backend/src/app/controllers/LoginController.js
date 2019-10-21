@@ -4,7 +4,6 @@ import sha1 from 'sha1';
 class LoginController {
     async index(req,res) {
        const { user, password } = req.body;
-       console.log(user, password)
        const password_hash = sha1(password);
         let listUserSeparada = [];
         fs.readFile('archive/auth', function(err, data) {

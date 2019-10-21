@@ -10,5 +10,6 @@ routes.get('/home', HomeController.index)
 routes.get('/setting', SettingController.index)
 
 routes.post('/login', LoginController.index)
+routes.post('/setting', SettingController.store)
 
 export default routes;
