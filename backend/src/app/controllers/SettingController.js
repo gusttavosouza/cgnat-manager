@@ -18,13 +18,19 @@ class SettingController {
   }
 
   async store(req,res){
-    const { rolesForApply } = req.body;
+    const { listConfig }  = req.body;
 
-    rolesForApply.forEach(e => {
-      console.log(`IpBluic ${e[0]} ipPrivate ${e[1]} porta ${e[2]}`)
+    listConfig.forEach(e => {
+      if(e[3] === "NÃO"){
+        shelljs.exec(`sudo iptables -t nat -A POSTROUTING -o enp0s8 -s ${e[0]} -p tcp -j SNAT --to ${e[1]}:${e[2]}`)
+        shelljs.exec(`sudo iptables -t nat -D POSTROUTING -o enp0s8 -s ${e[0]} -p udp -j SNAT --to ${e[1]}:${e[2]}`)
+      }
     });
-
     return res.json({"ok": true});
+  }
+
+  async delete(req, res){
+
   }
 }
 

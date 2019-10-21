@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'mui-datatables';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
@@ -48,6 +48,28 @@ export default function Logs({history}) {
     setAddressGlobal("");
     setMaskGlobal(24);
     setAmountPorts("");
+  }
+
+
+
+  const handleDelete = data =>{
+    console.log('teste')
+  }
+  function deleteRoles(chip) {
+    console.log("Entrouuu")
+    // setListConfig(listConfig.filter(element => {
+    //   console.log()
+    //   return element !== chip
+    // }))
+    // console.log('teste')
+  }
+
+  function saveListRoles(){
+    const response = api.post('/setting', {
+      listConfig
+    })
+
+    console.log(response);
   }
 
   function addList(){
@@ -181,12 +203,14 @@ export default function Logs({history}) {
               columns={columsTable}
               data={listConfig}
               title="VALIDAR"
+              handleDelete={handleDelete}
             />
             <Button
               variant="contained"
               color="primary"
               size="large"
               className="btnValidar"
+              onClick={saveListRoles}
               startIcon={<SaveIcon />}
             >
               Salvar
