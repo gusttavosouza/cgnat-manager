@@ -20,7 +20,6 @@ export default function Logs({history}) {
       history.push("/login");
       return;
     }
-
     async function loadHome(){
       const response = await api.get('/setting', {})
       console.log(response)
@@ -35,6 +34,7 @@ export default function Logs({history}) {
 
   const [refresh, setRefresh] = useState(true);
   const [listConfig, setListConfig] = useState([]);
+  const [listDelete, setListDelete] = useState([]);
   const [networkLocal, setAddressLocal] = useState("");
   const [maskLocal, setMaskLocal] = useState(24);
   const [networkGlobal, setAddressGlobal] = useState("")
@@ -50,23 +50,18 @@ export default function Logs({history}) {
     setAmountPorts("");
   }
 
-
-
-  const handleDelete = data =>{
-    console.log('teste')
+  const handleDelete = data => {
+    let ids = data.data.map(c => c.dataIndex);
+    const newListConfig = listConfig.filter((c,i) => !ids.includes(i))
+    setListConfig(newListConfig)
+    const newListDelete = listConfig.filter((c,i) => ids.includes(i) && c[3] === "SIM")
+    setListDelete([...listDelete,...newListDelete]);
   }
-  function deleteRoles(chip) {
-    console.log("Entrouuu")
-    // setListConfig(listConfig.filter(element => {
-    //   console.log()
-    //   return element !== chip
-    // }))
-    // console.log('teste')
-  }
+  tableConfig.onRowsDelete = handleDelete;
 
   function saveListRoles(){
     const response = api.post('/setting', {
-      listConfig
+      listConfig, listDelete
     })
 
     console.log(response);
