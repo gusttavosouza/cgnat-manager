@@ -31,19 +31,12 @@ export default function Pricing({history}) {
         <div className="container-central">  
           <div className="containerLeft">
             <h1>Atividades Recentes</h1>
-            <div className="mensagem"><strong>Adicionado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
+            <div className="mensagem"><strong>Adicionado</strong><br/>Realizado a inserção de um nova regra de CGNAT.
               <p className="dataContainer">Thiago - 02-10-2019 13:30</p>
             </div>
-            <div className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
+            <div className="mensagem"><strong>Modificado</strong><br/>Feito a desativação de uma regra de CGNAT.
               <p className="dataContainer">João - 02-10-2019 13:30</p>
-            </div>
-            <div className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
-              <p className="dataContainer">João - 02-10-2019 13:30</p>
-            </div>
-            <div className="mensagem"><strong>Modificado</strong><br/>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfegou uma bandeja de tipos.
-              <p className="dataContainer">João - 02-10-2019 13:30</p>
-            </div>
-            
+            </div>            
           </div>    
           <div className="containerMiddle">
             <h1>Informações CGNAT</h1>
@@ -66,9 +59,6 @@ export default function Pricing({history}) {
             <h1>Prefixos</h1>
             <div className="mensagem">
               <strong>Públicos</strong>
-              <p>177.74.240.0/20</p>
-              <p>177.74.240.0/20</p>
-              <p>177.74.240.0/20</p>
               <p>177.74.240.0/20</p>
             </div>
             <div className="mensagem">
