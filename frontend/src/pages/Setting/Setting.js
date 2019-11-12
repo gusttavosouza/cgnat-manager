@@ -59,12 +59,21 @@ export default function Logs({history}) {
   }
   tableConfig.onRowsDelete = handleDelete;
 
-  function saveListRoles(){
-    const response = api.post('/setting', {
+  async function saveListRoles(){
+    const response = await api.post('/setting', {
       listConfig, listDelete
     })
-
-    console.log(response);
+    let list = [];
+    if(listConfig.length === 0){
+      list = listConfig
+    }else{
+      listConfig.forEach(e => {
+        e[3] = "SIM";
+      })
+      list = listConfig.filter(e => e[3] === "SIM" )
+    }
+    setListConfig(list)
+    alert("Configurações salvas com sucesso!")
   }
 
   function addList(){
