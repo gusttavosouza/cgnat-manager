@@ -42,6 +42,7 @@ export default function Login({ history }){
       console.log(res.data)
       if(res.data.auth){
         window.localStorage.setItem('auth', 'true');
+        window.localStorage.setItem('user', res.data.user)
         history.push(`/home`)
       }else{
         alert("Usuário Incorreto!");

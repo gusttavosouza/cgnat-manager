@@ -1,6 +1,10 @@
 import shelljs from 'shelljs';
+import fs from 'fs';
 
 class SettingController {
+  
+
+
   async index(req,res){
     const comandos = shelljs.exec("sudo iptables -t nat -L -n | grep tcp");
     const vetRoles = comandos.split('\n');
@@ -31,7 +35,8 @@ class SettingController {
   }
 
   async store(req,res){
-    const { listConfig, listDelete }  = req.body;
+    const { listConfig, listDelete, user }  = req.body;
+    
     if(listConfig){
       listConfig.forEach(e => {
         if(e[3] === "NÃO"){
@@ -48,6 +53,17 @@ class SettingController {
         }
       });
     }
+    let data = "11/11/2019"
+    listConfig.forEach(e => {
+      if(e[3] === "NÃO"){
+        fs.writeFile('archive/logs', `${data}<->${e[0]}<->${e[1]}<->${e[2]}<->${"SIM"}<->${user}\n`,{enconding:'utf-8',flag: 'a'}, (err) => {
+          if (err) {
+              console.log(`Houve um erro ${err}`)
+          }
+          console.log('Escreveu')
+        })
+      }
+    })
     return res.json({ok: true});
   }
 }

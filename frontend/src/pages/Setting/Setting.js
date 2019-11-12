@@ -58,10 +58,11 @@ export default function Logs({history}) {
     setListDelete([...listDelete,...newListDelete]);
   }
   tableConfig.onRowsDelete = handleDelete;
-
+  
   async function saveListRoles(){
+    let user = window.localStorage.getItem('user');
     const response = await api.post('/setting', {
-      listConfig, listDelete
+      listConfig, listDelete, user
     })
     let list = [];
     if(listConfig.length === 0){
