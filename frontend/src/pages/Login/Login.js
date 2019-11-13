@@ -39,7 +39,6 @@ export default function Login({ history }){
       const res = await api.post('/login', {
         user,password
       })
-      console.log(res.data)
       if(res.data.auth){
         window.localStorage.setItem('auth', 'true');
         window.localStorage.setItem('user', res.data.user)

@@ -41,5 +41,9 @@ export const columsTable = [
 {
   name: "LabeStatus",
   label: "Status"
+},
+{
+  name: "LabeUser",
+  label: "Usuário"
 }
 ];

@@ -5,7 +5,6 @@ class LoginController {
     async index(req,res) {
        const { user, password } = req.body;
        const password_hash = sha1(password);
-       console.log(password_hash)
         let listUserSeparada = [];
         fs.readFile('archive/auth', function(err, data) {
             if(err){

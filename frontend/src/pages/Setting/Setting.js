@@ -22,7 +22,6 @@ export default function Logs({history}) {
     }
     async function loadHome(){
       const response = await api.get('/setting', {})
-      console.log(response)
       setListConfig([...listConfig, ...response.data])
     }
     if(refresh){
@@ -108,11 +107,9 @@ export default function Logs({history}) {
         ]);
         currentPort = parseInt(currentPort) + parseInt(amountPorts);
       }
-      console.log( 'entrouuu')
     }
 
     setListConfig([...listConfig, ...vetConfigs])
-    console.log(listConfig)
     clearLabels();
   }
 

@@ -7,6 +7,8 @@ import './Home.css';
 
 export default function Pricing({history}) {
   const [interfacesList, setInterfacesList] = useState([]);
+  const [logsList, setLogsList] = useState([]);
+  const [addressList, setAddressList] = useState([])
 
   useEffect(() => {
     const auth = window.localStorage.getItem('auth');
@@ -19,7 +21,10 @@ export default function Pricing({history}) {
     async function loadHome(){
         const response = await api.get('/home', {})
         setInterfacesList(response.data)
-        console.log(response)
+        const response2 = await api.get('/logs', {})
+        setLogsList(response2.data)
+        const response3 = await api.get('/address', {})
+        setAddressList(response3.data)
     }
     loadHome();
 // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,12 +36,16 @@ export default function Pricing({history}) {
         <div className="container-central">  
           <div className="containerLeft">
             <h1>Atividades Recentes</h1>
-            <div className="mensagem"><strong>Adicionado</strong><br/>Realizado a inserção de um nova regra de CGNAT.
-              <p className="dataContainer">Thiago - 02-10-2019 13:30</p>
-            </div>
-            <div className="mensagem"><strong>Modificado</strong><br/>Feito a desativação de uma regra de CGNAT.
-              <p className="dataContainer">João - 02-10-2019 13:30</p>
-            </div>            
+            {
+              logsList.map((element, index) => {
+                return (
+                <div className="mensagem"><strong>{(element[4] === "SIM" ? "Adicionado" : "Desabilitado")}</strong>
+                <br/>{element[4] === "SIM" ? "Realizado a inserção de um nova regra de CGNAT no sistema.": "Foi desabilitado um regra de CGNAT no sistema."}
+              <p className="dataContainer">{element[5]} - {element[0]}</p>
+                  </div>
+                )       
+              })
+            }          
           </div>    
           <div className="containerMiddle">
             <h1>Informações CGNAT</h1>
@@ -56,14 +65,31 @@ export default function Pricing({history}) {
           }
           </div>  
           <div className="containerRight">
-            <h1>Prefixos</h1>
+            <h1>Endereços</h1>
             <div className="mensagem">
               <strong>Públicos</strong>
-              <p>177.74.240.0/20</p>
+              {
+                addressList.map((e, index) => {
+                    let inicio = e.substr(0, 3);
+                    return (<p>{
+                      (inicio !== "192" && inicio !== "172" && inicio !== "10." ? e : "")
+                      }</p>)
+                  
+                })
+              }
+              
             </div>
             <div className="mensagem">
               <strong>Privado</strong>
-              <p>100.64.0.0/16</p>
+              {
+                addressList.map((e, index) => {
+                    let inicio = e.substr(0, 3);
+                    return (<p>{
+                      (inicio === "192" || inicio === "172" || inicio === "10." ? e : "")
+                      }</p>)
+                  
+                })
+              }
             </div>
           </div>
        </div>

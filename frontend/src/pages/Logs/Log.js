@@ -8,6 +8,7 @@ import api from '../../services/api';
 import './Log.css';
 
 export default function Logs({ history }) {
+  const [listLogs, setListLogs] = useState([])
 
   useEffect(() => {
     const auth = window.localStorage.getItem('auth');
@@ -16,15 +17,13 @@ export default function Logs({ history }) {
       history.push("/login");
       return;
     }
-  });
+    async function loadLog(){
+      const response = await api.get('/logs', {})
+      setListLogs(response.data)
+    }
+    loadLog();
 
-  const [listLogs, setListLogs] = useState([
-    ["10/10/2019 - 00/00/0000", "170.70.72.2", "192.168.0.1", "5000 - 7999", "Ativada"],
-    ["12/10/2019 - 00/00/0000", "20.20.20.20", "192.168.0.5", "10000 - 16000", "Ativada"],
-    ["01/11/2019 - 02/11/2019", "177.74.241.19", "192.168.0.1", "10000 - 30000", "Desativado"],
-    ["02/11/2019 - 00/00/0000", "20.20.20.20", "192.168.0.13", "3000 - 7999", "Ativada"],
-
-  ]);
+  },[]);
 
   return (
     <div>
