@@ -2,9 +2,8 @@ import shelljs from 'shelljs';
 import fs from 'fs';
 
 class SettingController {
-
   async index(req,res){
-    const comandos = shelljs.exec("iptables -t nat -L -n | grep POSTROUTING");
+    const comandos = shelljs.exec("iptables -t nat -L -n | grep 'SNAT       tcp'");
     const vetRoles = comandos.split('\n');
     let publicoMaisPorta = "";
     let privado = ""; 
@@ -78,5 +77,4 @@ class SettingController {
     return res.json({ok: true});
   }
 }
-
 export default new SettingController();
