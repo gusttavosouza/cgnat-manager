@@ -55,11 +55,7 @@ export default function Pricing({history}) {
               // eslint-disable-next-line no-unused-expressions
               return (<div key={index} className="mensagem"><strong>Placa de Rede:{element.name}</strong><br/>
                 <p className="information"><strong>Endereço IPv4:</strong>{element.address}</p>
-                <p className="information"><strong>Mascara de Rede</strong>{element.mask}</p>
-                <p className="information"><strong>Pacotes Enviados:</strong>{`${element.packageTx} Pacotes`}</p>
-                <p className="information"><strong>Pacotes Recebidos:</strong>{`${element.packageRx} Pacotes`}</p> 
-                <p className="information"><strong>Erros Recebimento:</strong>{`${element.errorsRx} Pacotes`}</p> 
-                <p className="information"><strong>Erros Transmissão:</strong>{`${element.errorsTx} Pacotes`}</p>  
+                <p className="information"><strong>Endereço MAC:</strong>{`${element.packageRx}`}</p>
               </div>)
             })
           }
