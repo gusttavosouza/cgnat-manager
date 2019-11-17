@@ -34,12 +34,17 @@ class SettingController {
 
   async store(req,res){
     const { listConfig, listDelete, user }  = req.body;
-    
+
     if(listConfig){
       listConfig.forEach(e => {
         if(e[3] === "NÃO"){
-          shelljs.exec(`sudo iptables -t nat -A POSTROUTING -s ${e[0]} -p tcp -j SNAT --to ${e[1]}:${e[2]}`)
-          shelljs.exec(`sudo iptables -t nat -A POSTROUTING -s ${e[0]} -p udp -j SNAT --to ${e[1]}:${e[2]}`)
+          shelljs.exec(`iptables -I INPUT -p ALL -d ${e[1]} -j ACCEPT`);
+          shelljs.exec(`iptables -t nat -I PREROUTING -p tcp -d ${e[1]} --dport ${e[2].replace("-", ":")} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -I POSTROUTING -s ${e[0]} -j SNAT -p tcp --to-source ${e[1]}:${e[2]}`);
+          shelljs.exec(`iptables -t nat -I PREROUTING -p udp -d ${e[1]} --dport ${e[2].replace("-", ":")} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -I POSTROUTING -s ${e[0]} -j SNAT -p udp --to-source ${e[1]}:${e[2]}`);
+          shelljs.exec(`iptables -t nat -I PREROUTING -p icmp -d ${e[1]} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -I POSTROUTING -s ${e[0]} -j SNAT -p icmp --to-source ${e[1]}`);
           const date = new Date();
           const data = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
           fs.writeFile('archive/logs', `${data}<->${e[0]}<->${e[1]}<->${e[2]}<->${"SIM"}<->${user}\n`,{enconding:'utf-8',flag: 'a'}, (err) => {
@@ -53,8 +58,13 @@ class SettingController {
     if(listDelete.length !== 0){
       listDelete.forEach(e => {
         if(e[3] === "SIM"){
-          shelljs.exec(`sudo iptables -t nat -D POSTROUTING -s ${e[0]} -p tcp -j SNAT --to ${e[1]}:${e[2]}`)
-          shelljs.exec(`sudo iptables -t nat -D POSTROUTING -s ${e[0]} -p udp -j SNAT --to ${e[1]}:${e[2]}`)
+          shelljs.exec(`iptables -D INPUT -p ALL -d ${e[1]} -j ACCEPT`);
+          shelljs.exec(`iptables -t nat -D PREROUTING -p tcp -d ${e[1]} --dport ${e[2].replace("-", ":")} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -D POSTROUTING -s ${e[0]} -j SNAT -p tcp --to-source ${e[1]}:${e[2]}`);
+          shelljs.exec(`iptables -t nat -D PREROUTING -p udp -d ${e[1]} --dport ${e[2].replace("-", ":")} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -D POSTROUTING -s ${e[0]} -j SNAT -p udp --to-source ${e[1]}:${e[2]}`);
+          shelljs.exec(`iptables -t nat -D PREROUTING -p icmp -d ${e[1]} -j DNAT --to-destination ${e[0]}`);
+          shelljs.exec(`iptables -t nat -D POSTROUTING -s ${e[0]} -j SNAT -p icmp --to-source ${e[1]}`);
           const date = new Date();
           const data = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
           fs.writeFile('archive/logsremove', `${data}<->${e[0]}<->${e[1]}<->${e[2]}<->${"NÃO"}<->${user}\n`,{enconding:'utf-8',flag: 'a'}, (err) => {
