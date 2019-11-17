@@ -13,7 +13,7 @@
 - git >=9.3.0
 - npm >=5.5.0
 - node >=9.3.0
-- Kernel Linux >=9.3.0
+- Kernel Linux >=2.4
 ## Download
 ```sh
 wget https://gist.githubusercontent.com/guuhx97/b72db87f548d76760abe5654ab3ec35e/raw/917faefb441a16a51afa8e49af86e0a3dffc62c0/install.sh
@@ -29,6 +29,9 @@ cd Installation-cgnat-manager
 
 ```sh
 sh ./install.sh
+
+cd cgnat-manager
+
 ```
 
 ## Usage

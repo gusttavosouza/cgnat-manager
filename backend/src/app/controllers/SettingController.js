@@ -4,7 +4,7 @@ import fs from 'fs';
 class SettingController {
 
   async index(req,res){
-    const comandos = shelljs.exec("sudo iptables -t nat -L -n | grep tcp");
+    const comandos = shelljs.exec("iptables -t nat -L -n | grep POSTROUTING");
     const vetRoles = comandos.split('\n');
     let publicoMaisPorta = "";
     let privado = ""; 
