@@ -15,7 +15,6 @@
   <img alt="License" src="https://img.shields.io/badge/Kernel-2.4-blue.svg?cacheSeconds=2592000">
 
 </p>
-arrow_down 
 
 ## 👨🏼‍💻 Projeto
 
