@@ -15,13 +15,14 @@
   <img alt="License" src="https://img.shields.io/badge/Kernel-2.4-blue.svg?cacheSeconds=2592000">
 
 </p>
-
+arrow_down 
 
 ## 👨🏼‍💻 Projeto
 
 <div style="text-align: justify">
 O CGNAT Manager é uma aplicação que foi desenvolvida durante o trabalho de conclusão de curso do curso de Ciência da Computação da Universidade do Vale do Itajaí - UNIVALI. É um contribuição na área de redes de computadores. O objetivo da aplicação é facilitar a implantação de CGNATs em provedores de médio e pequeno porte. A ideía é que a ferramenta seja utilizada como um meio de estudos e dimensionamento da rede. Para que a partir dela o administrador de rede possa de fato identificar suas reais necessidades.
 </div>
+
 ## 🔨 Tecnologias
 
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript)
@@ -30,14 +31,14 @@ O CGNAT Manager é uma aplicação que foi desenvolvida durante o trabalho de co
 - [Shell Script](https://pt.wikipedia.org/wiki/Shell_script)
 - [Linux](https://pt.wikipedia.org/wiki/Linux)
 
-## Pré-Requisítos
+## :ng: Pré-Requisítos
 
 - git >=9.3.0
 - npm >=5.5.0
 - node >=9.3.0
 - Kernel Linux >=2.4
 
-## Download
+## :arrow_down: Download
 <div style="text-align: justify">
 
 ```sh
@@ -45,7 +46,7 @@ wget https://gist.githubusercontent.com/guuhx97/b72db87f548d76760abe5654ab3ec35e
 ```
 <div>
 
-## Instalação
+## :fast_forward: Instalação
 
 ``` 
 sh ./install.sh 
