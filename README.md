@@ -8,12 +8,17 @@
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/guuhx97/cgnat-manager">
+
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
   <img alt="License" src="https://img.shields.io/badge/version-1.0.15-blue.svg?cacheSeconds=2592000">
   <img alt="License" src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg">
   <img alt="License" src="https://img.shields.io/badge/node-%3E%3D9.3.0-blue.svg">
   <img alt="License" src="https://img.shields.io/badge/Kernel-2.4-blue.svg?cacheSeconds=2592000">
 
+</p>
+
+<p align="center">
+  <img alt="Dev Radar" src=".github/cgnat-manager.png" width="100%">
 </p>
 
 ## 👨🏼‍💻 Projeto
