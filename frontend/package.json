@@ -8,7 +8,7 @@
     "axios": "^0.21.2",
     "ip-subnet-calculator": "^1.1.8",
     "mui-datatables": "^2.12.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
